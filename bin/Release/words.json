@@ -1,0 +1,45 @@
+[
+  {
+    "eng": true,
+    "rus": true,
+    "ger": true,
+    "Translation": null,
+    "Translations": {
+      "eng": "apple",
+      "ger": "apfel",
+      "rus": "\u044F\u0431\u043B\u043E\u043A\u043E"
+    }
+  },
+  {
+    "eng": true,
+    "rus": true,
+    "ger": true,
+    "Translation": null,
+    "Translations": {
+      "eng": "door",
+      "ger": "apfel",
+      "rus": "\u0434\u0432\u0435\u0440\u044C"
+    }
+  },
+  {
+    "eng": true,
+    "rus": true,
+    "ger": true,
+    "Translation": null,
+    "Translations": {
+      "eng": "water",
+      "ger": "apfel",
+      "rus": "\u044F\u0431\u043B\u043E\u043A\u043E"
+    }
+  },
+  {
+    "eng": false,
+    "rus": false,
+    "ger": false,
+    "Translation": null,
+    "Translations": {
+      "rus": "\u043E\u043D",
+      "eng": "he"
+    }
+  }
+]

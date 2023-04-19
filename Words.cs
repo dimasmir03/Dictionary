@@ -4,9 +4,9 @@ using System.IO;
 using System.Text.Json;
 public class Word
 {
-    public bool english { get; set; }
-    public bool russian { get; set; }
-    public bool german { get; set; }
+    public bool eng { get; set; }
+    public bool rus { get; set; }
+    public bool ger { get; set; }
 
     public string Translation { get; set; }
     public Dictionary<string, string> Translations { get; set; }
@@ -23,7 +23,7 @@ public class WordsWriter
             var json = File.ReadAllText(filename);
             words = JsonSerializer.Deserialize<List<Word>>(json);
         }
-        Word word = new Word();
+       // Word word = new Word();
 
         switch (fLang)
         {
@@ -40,19 +40,19 @@ public class WordsWriter
                 throw new ArgumentException($"Ошибка.");
         }
 
-        if (word == null)
-        {
+        //if (word == null)
+        //{
             //word = new Word { english = fWord, Translations = new Dictionary<string, string>() };
-            words.Add(word);
-        }
+            //words.Add(word);
+        //}
 
         switch (translationLanguage)
         {
             case "russian":
-                word.Translations["russian"] = translation;
+                //word.Translations["russian"] = translation;
                 break;
             case "german":
-                word.Translations["german"] = translation;
+                //word.Translations["german"] = translation;
                 break;
             default:
                 throw new ArgumentException($"Ошибка.");
@@ -74,7 +74,7 @@ public class WordsReader
             var json = File.ReadAllText(filename);
             words = JsonSerializer.Deserialize<List<Word>>(json);
         }
-        Word word = new Word();
+        //Word word = new Word();
         switch (fLang)
         {
             case "english":
@@ -89,8 +89,8 @@ public class WordsReader
             default:
                 throw new ArgumentException($"Ошибка.");
         }
-        if (word != null && word.Translations.ContainsKey(translationLanguage))
-            return word.Translations[translationLanguage];
+        //if (word != null && word.Translations.ContainsKey(translationLanguage))
+            //return word.Translations[translationLanguage];
 
         return null;
     }
