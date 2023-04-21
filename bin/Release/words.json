@@ -41,5 +41,45 @@
       "rus": "\u043E\u043D",
       "eng": "he"
     }
+  },
+  {
+    "eng": false,
+    "rus": false,
+    "ger": false,
+    "Translation": null,
+    "Translations": {
+      "eng": "mom",
+      "rus": "\u043C\u0430\u043C\u0430"
+    }
+  },
+  {
+    "eng": false,
+    "rus": false,
+    "ger": false,
+    "Translation": null,
+    "Translations": {
+      "rus": "\u043C\u0430\u043C\u0430",
+      "eng": "mom"
+    }
+  },
+  {
+    "eng": false,
+    "rus": false,
+    "ger": false,
+    "Translation": null,
+    "Translations": {
+      "eng": "dad",
+      "rus": "\u043F\u0430\u043F\u0430"
+    }
+  },
+  {
+    "eng": false,
+    "rus": false,
+    "ger": false,
+    "Translation": null,
+    "Translations": {
+      "eng": "dad",
+      "rus": "\u043F\u0430\u043F\u0430"
+    }
   }
 ]

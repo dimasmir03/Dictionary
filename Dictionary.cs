@@ -39,10 +39,7 @@ namespace Dictionary
             langs2.SelectedIndexChanged += langs_SelectedIndexChanged;
 
 
-            foreach (var item in langs)
-            {
-                Console.WriteLine(item.Key);
-            }
+            
 
 
 
@@ -60,7 +57,7 @@ namespace Dictionary
             string i = iInput.Text;
             string o = iOutput.Text;
 
-            if(iInput.Text == "" || iOutput.Text == "")
+            if(iInput.Text == "" || (bTranslate.Text == "Добавить" && iOutput.Text == ""))
             {
                 MessageBox.Show("Пустое поле ввода!");
                 return;
@@ -76,21 +73,26 @@ namespace Dictionary
             {
                 foreach (var item in words)
                 {
-                    if (item.Translations[langs1.Text] == i)
+                    if (item.Translations.ContainsKey(langs[langs1.Text]))
                     {
-                        if (item.Translations[langs2.Text] == "")
+                        Console.WriteLine("Have Key");
+                        if (item.Translations[langs[langs1.Text]] == i)
                         {
-                            item.Translations[langs2.Text] = o;
-                        }
-                        DialogResult dr = MessageBox.Show($"Уже существует перевод слова {i}\nХотите изменить перевод?", "Mood Test", MessageBoxButtons.YesNo);
-
-                        switch(dr) 
-                        {
-                            case DialogResult.Yes:
-                                item.Translations[langs2.Text] = o;
-                                break;
-                            case DialogResult.No:
+                            if (item.Translations[langs[langs2.Text]] == "")
+                            {
+                                item.Translations[langs[langs2.Text]] = o;
                                 return;
+                            }
+                            DialogResult dr = MessageBox.Show($"Уже существует перевод слова {i}\nХотите обновить перевод?", "Mood Test", MessageBoxButtons.YesNo);
+
+                            switch (dr)
+                            {
+                                case DialogResult.Yes:
+                                    item.Translations[langs[langs2.Text]] = o;
+                                    break;
+                                case DialogResult.No:
+                                    return;
+                            }
                         }
                     }
                 }
@@ -113,6 +115,17 @@ namespace Dictionary
                 
                 foreach (var item in words)
                 {
+                    if (!item.Translations.ContainsKey(langs[langs1.Text]))
+                    {
+                        MessageBox.Show($"В словаре отсутстсует слово {i}!");
+                        return;
+                    }
+
+                    if (!item.Translations.ContainsKey(langs[langs2.Text]))
+                    {
+                        MessageBox.Show($"Отсутствует перевод слова {i} на {langs2.Text} язык!");
+                        return;
+                    }
                     if (item.Translations[langs[langs1.Text]] == i)
                     {
                         if (item.Translations[langs[langs2.Text]] == null)
@@ -126,7 +139,7 @@ namespace Dictionary
                     }
                 }
 
-                MessageBox.Show($"Ошибка! В словаре не найденно слово {i}");
+                MessageBox.Show($"Ошибка! В словаре не найденно слово {i} на {langs2.Text}ом языке");
             }
         }
 
@@ -142,13 +155,16 @@ namespace Dictionary
             Thread.Sleep(400);
             Controls.Remove(panel1);
 
+            iOutput.Clear();
+            iInput.Clear();
+
             if (checkBox1.Checked)
             {
                 iOutput.ReadOnly = false;
 
                 langs1.DropDownStyle = ComboBoxStyle.DropDown;
                 langs2.DropDownStyle = ComboBoxStyle.DropDown;
-                langs2.Text = string.Empty;
+                
 
                 bTranslate.Text = "Добавить";
 
