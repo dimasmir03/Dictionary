@@ -37,19 +37,6 @@ namespace Dictionary
 
             langs1.SelectedIndexChanged += langs_SelectedIndexChanged;
             langs2.SelectedIndexChanged += langs_SelectedIndexChanged;
-
-
-            
-
-
-
-
-
-
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -143,8 +130,6 @@ namespace Dictionary
             }
         }
 
-       
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             Panel panel1 = new Panel();
@@ -164,7 +149,6 @@ namespace Dictionary
 
                 langs1.DropDownStyle = ComboBoxStyle.DropDown;
                 langs2.DropDownStyle = ComboBoxStyle.DropDown;
-                
 
                 bTranslate.Text = "Добавить";
 
@@ -191,11 +175,6 @@ namespace Dictionary
         {
             var jsonToWrite = JsonSerializer.Serialize(words, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(filewords, jsonToWrite);
-        }
-
-        private void langs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
