@@ -35,8 +35,8 @@ namespace Dictionary
             langs1.Sorted = langs2.Sorted = true;
             langs2.SelectedIndex = (l2 = (langs1.SelectedIndex = (l1 = 0)) + 1);
 
-            langs1.SelectedIndexChanged += langs_SelectedIndexChanged;
-            langs2.SelectedIndexChanged += langs_SelectedIndexChanged;
+            //langs1.SelectedIndexChanged += langs_SelectedIndexChanged;
+            //langs2.SelectedIndexChanged += langs_SelectedIndexChanged;
         }
 
         private void button2_Click(object sender, EventArgs e)
